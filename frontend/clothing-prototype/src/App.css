@@ -1,0 +1,12 @@
+/* Suspense fallback */
+h2:only-child {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--royal-mid);
+  background: var(--bg);
+}

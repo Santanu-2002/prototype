@@ -1,0 +1,177 @@
+/* ══════════════════════════════════
+   CUSTOM DASHBOARD (Men/Women/Boys/Girls)
+══════════════════════════════════ */
+
+/* Outer wrapper set in MenDashboard / WomenDashboard etc */
+.men-dashboard,
+.boys-dashboard,
+.girls-dashboard,
+.women-dashboard {
+  padding-top: var(--nav-h);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+.men-dashboard > h2,
+.boys-dashboard > h2,
+.girls-dashboard > h2,
+.women-dashboard > h2 {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  width: 100%;
+  padding: 1.8rem 2rem 0;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--royal-dark);
+  letter-spacing: -0.5px;
+}
+
+/* Inner dashboard div */
+.dasboard-div {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 1.5rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── FIRST SECTION — Shop by Category ── */
+.first-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  background: var(--surface);
+  border-radius: var(--r-xl);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--sh-sm);
+  padding: 1.8rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.first-section h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--royal-dark);
+  position: relative;
+  padding-bottom: 0.55rem;
+  display: inline-block;
+}
+.first-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 36px; height: 3px;
+  background: var(--grad-main);
+  border-radius: 2px;
+}
+
+/* Category pill cards */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.first-cards {
+  background: var(--sky-pale);
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--sh-xs);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 0.6rem 0.9rem;
+  transition: all 0.26s cubic-bezier(.22,.61,.36,1);
+  overflow: hidden;
+  width: 150px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
+.first-cards:hover {
+  border-color: var(--sky);
+  transform: translateY(-6px);
+  box-shadow: var(--sh-md);
+  background: var(--surface);
+}
+/* .first-cards img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: var(--r-sm);
+  transition: transform 0.32s;
+} */
+.first-cards:hover img { transform: scale(1.07); }
+.first-cards h5 {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--royal);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+/* ── SECOND SECTION — Banner Cards ── */
+.second-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.second-cards {
+  height: 300px;
+  border-radius: var(--r-lg);
+  background-size: cover;
+  background-position: center;
+  background-color: var(--sky-pale);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--sh-sm);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s cubic-bezier(.22,.61,.36,1);
+  text-align: center;
+}
+.second-cards::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--grad-card);
+  opacity: 0.4;
+  transition: opacity 0.3s;
+  border-radius: var(--r-lg);
+}
+.second-cards:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sh-lg);
+  border-color: var(--sky-mid);
+}
+.second-cards:hover::before { opacity: 0.65; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .category-grid { grid-template-columns: repeat(3, 1fr); }
+  .second-section { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .men-dashboard > h2 { padding: 1.3rem 1rem 0; font-size: 1.3rem; }
+  .dasboard-div { padding: 1.2rem 1rem 2.5rem; gap: 1.8rem; }
+  .first-section { padding: 1.3rem; }
+  .second-cards { height: 220px; }
+}
+@media (max-width: 540px) {
+  .category-grid { grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
+  .first-cards img { height: 70px; }
+  .second-section { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .second-cards { height: 170px; }
+}
+@media (max-width: 380px) {
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+}
