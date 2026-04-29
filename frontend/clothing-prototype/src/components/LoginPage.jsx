@@ -3,8 +3,6 @@ import Forms from "./Forms";
 import axios from "axios";
 import {setUser} from "../global/slices/userSlice"
 import { useSelector, useDispatch } from "react-redux";
-
-import BASE_URL from "../configure";
 const loginState = {
     email:"",
     password:"",
@@ -73,7 +71,7 @@ export default function LoginPage(){
             password: state.password
         }
         try{
-            const response = await axios.post(`${BASE_URL}/api/user/login`, loginData);
+            const response = await axios.post("http://prototype-production-dfef.up.railway.app/api/user/login", loginData);
 
             localStorage.setItem("token", response.data.token);
             reduxDispatch(setUser(response.data.userInfo))

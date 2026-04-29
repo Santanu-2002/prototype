@@ -16,7 +16,7 @@ const signUpData = {
         confirmPassword:"",
     }
 };
-import BASE_URL from "../configure";
+
 const handleSignup = (state, action) =>{
     switch(action.type){
         case "HANDLE_CHANGE":{
@@ -141,7 +141,7 @@ export default function SignUpPage(){
 
         try{
             
-            const response = await axios.post(`${BASE_URL}/api/newuser/signup`, signUpData);
+            const response = await axios.post("http://prototype-production-dfef.up.railway.app/api/newuser/signup", signUpData);
 
             console.log(response, "SignUp Successful");
             localStorage.setItem("name", response.data.user.name);
