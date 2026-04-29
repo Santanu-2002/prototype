@@ -141,7 +141,7 @@ export default function SignUpPage(){
 
         try{
             
-            const response = await axios.post("http://prototype-production-dfef.up.railway.app/api/newuser/signup", signUpData);
+            const response = await axios.post("https://prototype-production-dfef.up.railway.app/api/newuser/signup", signUpData);
 
             console.log(response, "SignUp Successful");
             localStorage.setItem("name", response.data.user.name);

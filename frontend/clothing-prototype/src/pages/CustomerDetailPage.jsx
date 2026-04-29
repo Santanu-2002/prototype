@@ -41,7 +41,7 @@ export default function CustomerDetailPage(){
         try{
             setIsLoading(true);
             
-            const fetchingData = await axios.post("http://prototype-production-dfef.up.railway.app/api/state/states", newState); 
+            const fetchingData = await axios.post("https://prototype-production-dfef.up.railway.app/api/state/states", newState); 
 
             setFetchData(fetchingData.data.stateDetails);
 
@@ -134,7 +134,7 @@ export default function CustomerDetailPage(){
             };
 
             try{
-                const submitDetails = await axios.post("http://prototype-production-dfef.up.railway.app/api/address/addAddress", finalData);
+                const submitDetails = await axios.post("https://prototype-production-dfef.up.railway.app/api/address/addAddress", finalData);
                 dispatch(addAddress(finalData));
             }catch(error){
                 setApiError(error);
@@ -144,7 +144,7 @@ export default function CustomerDetailPage(){
     useEffect(()=>{
         const handleAddressFetch =async()=>{
             try{
-                const fetchedAddresses = await axios.post("http://prototype-production-dfef.up.railway.app/api/address/getAddress", {userId: userId});
+                const fetchedAddresses = await axios.post("https://prototype-production-dfef.up.railway.app/api/address/getAddress", {userId: userId});
                 dispatch(setAddress(fetchedAddresses.data));
             }catch(error){
                 setApiError(error);
@@ -156,7 +156,7 @@ export default function CustomerDetailPage(){
     const handDeleteAddress = async(id)=>{
             
         try{
-            const removeResponse = await axios.delete("http://prototype-production-dfef.up.railway.app/api/address/removeAddress",{data:{adsId : id}});
+            const removeResponse = await axios.delete("https://prototype-production-dfef.up.railway.app/api/address/removeAddress",{data:{adsId : id}});
             dispatch(removeAddress(id));
         }catch(error){
             setApiError(error);

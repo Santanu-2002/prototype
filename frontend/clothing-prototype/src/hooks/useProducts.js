@@ -18,7 +18,7 @@ export default function useProducts(
         setIsLoading(true);
 
         const response = await axios.get(
-          "http://prototype-production-dfef.up.railway.app/api/products/allProducts",
+          "https://prototype-production-dfef.up.railway.app/api/products/allProducts",
           {
             params: {
               subCategory,

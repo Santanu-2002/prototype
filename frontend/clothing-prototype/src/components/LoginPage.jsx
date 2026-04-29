@@ -71,7 +71,7 @@ export default function LoginPage(){
             password: state.password
         }
         try{
-            const response = await axios.post("http://prototype-production-dfef.up.railway.app/api/user/login", loginData);
+            const response = await axios.post("https://prototype-production-dfef.up.railway.app/api/user/login", loginData);
 
             localStorage.setItem("token", response.data.token);
             reduxDispatch(setUser(response.data.userInfo))
