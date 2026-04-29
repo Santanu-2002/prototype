@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import {setAddress, addAddress, removeAddress} from "../global/slices/addressSlice";
-
+import BASE_URL from "../configure";
 import "./customerDetails.css";
+
 export default function CustomerDetailPage(){
     const [formData, setFormData] = useState({
         name:"",
@@ -41,7 +42,7 @@ export default function CustomerDetailPage(){
         try{
             setIsLoading(true);
             
-            const fetchingData = await axios.post("http://localhost:5000/api/state/states", newState); 
+            const fetchingData = await axios.post(`${BASE_URL}/api/state/states`, newState); 
 
             setFetchData(fetchingData.data.stateDetails);
 
@@ -134,7 +135,7 @@ export default function CustomerDetailPage(){
             };
 
             try{
-                const submitDetails = await axios.post("http://localhost:5000/api/address/addAddress", finalData);
+                const submitDetails = await axios.post(`${BASE_URL}/api/address/add/addAddress`, finalData);
                 dispatch(addAddress(finalData));
             }catch(error){
                 setApiError(error);
@@ -144,7 +145,7 @@ export default function CustomerDetailPage(){
     useEffect(()=>{
         const handleAddressFetch =async()=>{
             try{
-                const fetchedAddresses = await axios.post("http://localhost:5000/api/address/getAddress", {userId: userId});
+                const fetchedAddresses = await axios.post(`${BASE_URL}/api/address/get/getAddress`, {userId: userId});
                 dispatch(setAddress(fetchedAddresses.data));
             }catch(error){
                 setApiError(error);
@@ -156,7 +157,7 @@ export default function CustomerDetailPage(){
     const handDeleteAddress = async(id)=>{
             
         try{
-            const removeResponse = await axios.delete("http://localhost:5000/api/address/removeAddress",{data:{adsId : id}});
+            const removeResponse = await axios.delete(`${BASE_URL}/api/address/remove/removeAddress`,{data:{adsId : id}});
             dispatch(removeAddress(id));
         }catch(error){
             setApiError(error);

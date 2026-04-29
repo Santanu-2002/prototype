@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import BASE_URL from "../configure";
 export default function useProducts(
   subCategory,
   masterCategory,
@@ -18,7 +18,7 @@ export default function useProducts(
         setIsLoading(true);
 
         const response = await axios.get(
-          "http://localhost:5000/api/products/allProducts",
+          `${BASE_URL}/api/products/allProducts`,
           {
             params: {
               subCategory,
