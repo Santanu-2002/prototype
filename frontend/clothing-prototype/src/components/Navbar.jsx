@@ -42,7 +42,7 @@ return(
             <div className="home-button" onClick={()=> navigate("./")}>
                 🏠
             </div>
-            <input type="text" placeholder="🔍Search" className="search-input" /> 
+            <input type="text" placeholder="Search" className="search-input" /> 
             <div className="navbar-links">
             <p onClick={()=> {dispatch(setGender("Men")); navigate("/menDashboard");}} >MEN</p>
             <p onClick={()=> {dispatch(setGender("Women")); navigate("/womenDashboard");}} >WOMEN</p>
