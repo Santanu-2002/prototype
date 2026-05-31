@@ -17,6 +17,8 @@ const getStates = require("./routes/stateRoutes");
 const addAddress = require("./routes/addAddressRoutes");
 const getAddress = require("./routes/getAddressRoutes");
 const removeAddress = require("./routes/removeAddressRoutes");
+const getWishlist = require('./routes/getWishlistRoutes');
+const addWishlist = require('./routes/addWishlistRoutes');
 
 app.use("/api/newuser", signUp);
 app.use("/api/user/", logIn);
@@ -25,6 +27,8 @@ app.use("/api/state", getStates);
 app.use("/api/address/add", addAddress);
 app.use("/api/address/get", getAddress);
 app.use("/api/address/remove", removeAddress);
+app.use("/api/getWishlistData", getWishlist);
+app.use('/api/addToWishlist', addWishlist);
 
 app.get("/", (req, res) => {
   res.send("Server running");

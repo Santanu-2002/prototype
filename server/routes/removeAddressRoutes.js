@@ -1,4 +1,4 @@
-const {removeAddress} = require("../controllers/remoevAddressController");
+const {removeAddress} = require("../controllers/removeAddressController");
 
 const express = require("express");
 const router = express.Router();
