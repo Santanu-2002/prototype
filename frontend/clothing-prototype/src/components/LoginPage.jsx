@@ -76,12 +76,6 @@ export default function LoginPage(){
             localStorage.setItem("token", response.data.token);
             reduxDispatch(setUser(response.data.userInfo))
             
-            // we can also write this
-            // localStorage.setItem(
-                // "user",
-                // JSON.stringify(response.data.userInfo)
-                // );
-            // but mine is more convinient for me i don't want everything in it
         }catch(error){
             if(error.response){
                 setErr(error.response.data.message);

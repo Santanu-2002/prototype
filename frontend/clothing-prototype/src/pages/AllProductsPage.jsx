@@ -1,22 +1,24 @@
 import { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom";
-
+import {FaHeart, FaRegHeart} from "react-icons/fa";
 import "./allProducts.css";
+
 import useProducts  from ".././hooks/useProducts";
 
 import {useSelector, useDispatch} from "react-redux"
-import {setProducts} from  "../global/slices/productSlice";
+import {setProducts, addWishListProduct} from  "../global/slices/productSlice";
 
 export default function AllProductsPage(){
 
+    const [wishlisted, setWishlisted] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const gender = useSelector((state)=> state.gender.gender);
-    const masterCategory = useSelector((state)=> state.master.masterCategory);
+    const gender = useSelector((state)=> state.category.gender);
+    const masterCategory = useSelector((state)=> state.category.masterCategory);
     const subCategory = useSelector((state)=> state.category.category);
-    const usage = useSelector((state)=>state.clothType.usage);
-    const articleType = useSelector((state)=> state.article.articleType);
+    const usage = useSelector((state)=>state.category.usage);
+    const articleType = useSelector((state)=> state.category.articleType);
     const {isLoading, err, allProducts} = useProducts(subCategory, masterCategory, usage, articleType, gender);
 
     console.log(subCategory);
@@ -44,10 +46,14 @@ return(
     <div className="product_page">
         <div className="products_viewingPage">
         {currentData.map((items)=>(
-            <div key={items.id} className="product_card" onClick={()=>{dispatch(setProducts([items])); navigate("/productDetail") }}>
+            <div key={items.id} className="product_card" 
+            onClick={()=>{dispatch(setProducts([items])); navigate("/productDetail"); dispatch(addWishListProduct([items])); }}>
             <img src={items.image} className="product_image"/>
             <p className="product_detail">{items.productDisplayName}</p>
-            <button className="wishslist-button">❤️</button>
+            <button className="wishslist-button" 
+            onClick={()=> {setWishlisted(prev=> !prev); dispatch(addWishListProduct(items)); }}>
+                {wishlisted ? (<FaHeart color="red"/>): (<FaRegHeart/>)}
+            </button>
         </div>))}
         </div>
 

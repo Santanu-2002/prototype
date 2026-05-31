@@ -1,9 +1,11 @@
 import {useNavigate} from "react-router-dom";
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import "./navbar.css";
 import {useDispatch, useSelector} from "react-redux";
-import {setGender} from "../global/slices/genderSlice";
+import {setGender} from "../global/slices/categorySlice"
 
 export default function Navbar(){
+
     const token = localStorage.getItem("token");
     const user = useSelector(state => state.user.userDetail);
     const firstName = user?.name?.split(" ")[0];
@@ -28,9 +30,12 @@ return(
             <p onClick={()=> {dispatch(setGender("Women")); navigate("/womenDashboard");}} >WOMEN</p>
             <p onClick={()=> {dispatch(setGender("Boys")); navigate("/boysDashboard")}} >BOYS</p>
             <p onClick={()=> {dispatch(setGender("Girls")); navigate("/girlsDashboard")}} >GIRLS</p>
+            <button onClick={()=> navigate('/wishlistPage')}> <FaHeart size={24}/> </button>
+            <button onClick={()=> navigate('/cartPage')}><FaShoppingCart size={24}/></button>
+
             <div className="navbar-user">
                 <h4>Hello, {firstName}</h4>
-                <div className="profile_detail">
+                <div className="profile_detail" onClick={()=>navigate("./customerDetail")}>
                     profile
                 </div>
             </div>
@@ -49,6 +54,8 @@ return(
             <p onClick={()=> {dispatch(setGender("Boys")); navigate("/boysDashboard")}} >BOYS</p>
             <p onClick={()=> {dispatch(setGender("Girls")); navigate("/girlsDashboard")}} >GIRLS</p>
             </div>
+            <button onClick={()=> navigate('/wishlistPage')}> <FaHeart size={24}/> </button>
+            <button onClick={()=> navigate('/cartPage')}><FaShoppingCart size={24}/></button>
             <div className="navbar-auth">
                 <span onClick={()=> navigate("/loginPage")}>LOGIN</span> <span className="separator">/</span> <span onClick={()=> navigate("/signUpPage")}>SIGNUP</span>
             </div>
@@ -58,4 +65,4 @@ return(
 )
 }
 
-// add debounce for search and all
+

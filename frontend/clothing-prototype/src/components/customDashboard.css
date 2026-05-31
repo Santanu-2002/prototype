@@ -1,8 +1,4 @@
-/* ══════════════════════════════════
-   CUSTOM DASHBOARD (Men/Women/Boys/Girls)
-══════════════════════════════════ */
 
-/* Outer wrapper set in MenDashboard / WomenDashboard etc */
 .men-dashboard,
 .boys-dashboard,
 .girls-dashboard,
@@ -26,7 +22,7 @@
   letter-spacing: -0.5px;
 }
 
-/* Inner dashboard div */
+
 .dasboard-div {
   width: 100%;
   max-width: var(--page-max);
@@ -37,7 +33,7 @@
   gap: 2.5rem;
 }
 
-/* ── FIRST SECTION — Shop by Category ── */
+
 .first-section {
   display: flex;
   flex-direction: column;
@@ -69,7 +65,7 @@
   border-radius: 2px;
 }
 
-/* Category pill cards */
+
 .category-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -118,7 +114,7 @@
   letter-spacing: 0.7px;
 }
 
-/* ── SECOND SECTION — Banner Cards ── */
+
 .second-section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -155,7 +151,7 @@
 }
 .second-cards:hover::before { opacity: 0.65; }
 
-/* ── RESPONSIVE ── */
+
 @media (max-width: 1100px) {
   .category-grid { grid-template-columns: repeat(3, 1fr); }
   .second-section { grid-template-columns: repeat(2, 1fr); }

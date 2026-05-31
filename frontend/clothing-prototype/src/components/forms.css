@@ -1,6 +1,4 @@
-/* ══════════════════════════════════
-   FORMS — LOGIN / SIGNUP
-══════════════════════════════════ */
+
 .form_page {
   width: 100%;
   min-height: 100vh;
@@ -28,7 +26,7 @@
   to   { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* Form header */
+
 .form_style h4 {
   background: var(--grad-main);
   color: #fff !important;
@@ -40,7 +38,7 @@
   text-transform: uppercase;
 }
 
-/* Form body */
+
 .form_style > div {
   padding: 1.8rem 2rem 2rem;
   display: flex;
@@ -48,7 +46,7 @@
   gap: 1.1rem;
 }
 
-/* Input group */
+
 .display-input {
   width: 100%;
   display: flex;
@@ -84,7 +82,6 @@
   box-shadow: 0 0 0 3px rgba(37,99,235,0.14);
 }
 
-/* Submit button */
 .form_style > div > button[type="submit"],
 .form_style button[type="submit"] {
   width: 100%;
@@ -109,7 +106,6 @@
   box-shadow: 0 8px 22px rgba(29,78,216,0.3);
 }
 
-/* Error */
 .finalError {
   min-height: 1rem;
   text-align: center;

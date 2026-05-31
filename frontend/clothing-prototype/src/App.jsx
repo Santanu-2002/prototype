@@ -12,6 +12,9 @@ const AllProductsPage = lazy(() => import('./pages/AllProductsPage'));
 const LoginPage = lazy(() => import("./components/LoginPage"));
 const SignUpPage = lazy(() => import("./components/SignUpPage"));
 const ProductPage = lazy(() => import('./pages/ProductsPage'));
+const CustomerDetailPage = lazy(()=>import('./pages/CustomerDetailPage'));
+const WishlistPage = lazy(()=> import('./pages/WishlistPage'));
+const CartPage = lazy(()=>import("./pages/CartPage"))
 
 function App() {
   return (
@@ -20,7 +23,7 @@ function App() {
       <Suspense fallback={<h2>Loading...</h2>}>
         <Navbar/>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<HomePage />} />  
           <Route path='/allProductsPage' element={<AllProductsPage />} />
           <Route path='/menDashboard' element={<MenDashboard />} />
           <Route path='/womenDashboard' element={<WomenDashboard />} />
@@ -29,6 +32,10 @@ function App() {
           <Route path='/loginPage' element={<LoginPage />} />
           <Route path='/signUpPage' element={<SignUpPage />} />
           <Route path='/productDetail' element={<ProductPage />} />
+          <Route path='/customerDetail' element={<CustomerDetailPage />} />
+          <Route path='/wishlistPage' element={<WishlistPage />} />
+          <Route path='/cartPage' element={<CartPage />} />
+          
         </Routes>
       </Suspense>
     </BrowserRouter>

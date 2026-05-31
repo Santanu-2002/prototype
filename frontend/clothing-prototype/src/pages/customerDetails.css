@@ -1,6 +1,4 @@
-/* ══════════════════════════════════
-   CUSTOMER DETAIL / ADDRESS PAGE
-══════════════════════════════════ */
+
 .customer-page {
   width: 100%;
   min-height: 100vh;
@@ -13,7 +11,7 @@
   background: var(--bg);
 }
 
-/* Page title */
+
 .customer-page h2 {
   font-size: 1.4rem;
   font-weight: 900;
@@ -21,7 +19,7 @@
   letter-spacing: -0.4px;
 }
 
-/* Saved address card */
+
 .address-card {
   background: var(--surface);
   border-radius: var(--r-md);
@@ -54,7 +52,7 @@
 }
 .address-delete-btn:hover { background: var(--error); color: #fff; }
 
-/* Add new button */
+
 .address-add-btn {
   align-self: flex-start;
   padding: 0.65rem 1.8rem;
@@ -72,7 +70,7 @@
 }
 .address-add-btn:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: var(--sh-md); }
 
-/* Address form overlay */
+
 .address-form-overlay {
   position: fixed;
   inset: 0;
@@ -196,7 +194,7 @@
 }
 .address-close-btn:hover { background: var(--error); color: #fff; }
 
-/* ── Responsive ── */
+
 @media (max-width: 768px) {
   .customer-page { padding: calc(var(--nav-h) + 1.2rem) 1rem 2.5rem; }
   .address-form-body { grid-template-columns: 1fr; }

@@ -1,7 +1,4 @@
-import {setArticle} from "../global/slices/articleSlice";
-import {setCategory} from "../global/slices/categorySlice";
-import {setMasterCategory} from "../global/slices/masterCategorySlice";
-import {setClothType} from "../global/slices/clothTypeSlice";
+import { setCategory, setMasterCategory, setArticle, setClothType, setGender } from "../global/slices/categorySlice";
 import React, { useCallback } from "react";
 import CustomDashboard from "../components/CustomDashboard";
 import { useDispatch } from "react-redux";

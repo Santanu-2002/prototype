@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setCategory } from "../global/slices/categorySlice";
-import {setMasterCategory} from "../global/slices/masterCategorySlice";
+import { setCategory, setMasterCategory, setArticle, setClothType, setGender } from "../global/slices/categorySlice";
+
 import "./homePage.css";
 export default function HomePage() {
   const navigate = useNavigate();

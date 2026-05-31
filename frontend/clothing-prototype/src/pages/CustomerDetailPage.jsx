@@ -25,7 +25,7 @@ export default function CustomerDetailPage(){
     const savedAddress = useSelector(state => state.address.addresses);
     const userDetails = useSelector(state=> state.user.userDetails);
     const userId = userDetails.id;
-
+    
     const handleChange =(e)=>{
         const {name , value} = e.target;
 

@@ -1,9 +1,11 @@
 import "./forms.css";
+import { useNavigate } from "react-router-dom";
 export default function Forms({props , onSubmit, err, formName}){
     const handleSubmit=(e)=>{
         e.preventDefault();
         onSubmit();
     };
+    const navigate = useNavigate();
 return(
     <div className="form_page">
         <form onSubmit={handleSubmit} className="form_style">
@@ -21,7 +23,7 @@ return(
                 {data.error && ( <p style={{color:"red"}}>{data.error}</p>)}
                 </div>
             ))}
-            <button type="submit">SUBMIT</button>
+            <button type="submit" onClick={()=> navigate("./")}>SUBMIT</button>
             <div className="finalError">
             {err && (<p style={{color:"red"}}>{err}</p> )}
             </div>
